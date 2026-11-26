@@ -1,0 +1,3 @@
+grammars/
+tree-sitter-obo/
+*.wasm

@@ -1,0 +1,11 @@
+id = "obo"
+name = "OBO"
+description = "Syntax highlighting for the OBO ontology flat file format (.obo)."
+version = "0.1.0"
+schema_version = 1
+authors = ["Andreas Zankl"]
+repository = "https://github.com/azankl/zed-obo"
+
+[grammars.obo]
+repository = "https://github.com/azankl/tree-sitter-obo"
+rev = "bd235c9a1fe593cf5d5cafef6af1ed142b935fee"
