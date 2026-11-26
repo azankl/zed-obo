@@ -17,11 +17,16 @@ Highlights:
 
 The outline panel (`cmd-shift-o`) lists every stanza by id and name.
 
-## Install (dev extension)
+## Install
 
-1. In Zed, open the command palette and run **zed: install dev extension**.
-2. Select this `zed-obo` folder.
-3. Open any `.obo` file.
+In Zed, open the Extensions page (`cmd-shift-x`), search for **OBO** and click
+**Install**. Then open any `.obo` file.
+
+### Install from source (dev extension)
+
+1. Clone this repository.
+2. In Zed, open the command palette and run **zed: install dev extension**.
+3. Select the cloned `zed-obo` folder.
 
 Zed needs Rust installed (via `rustup`) to install dev extensions.
 
@@ -29,25 +34,31 @@ Zed needs Rust installed (via `rustup`) to install dev extensions.
 
 ```
 zed-obo/
-├── extension.toml          # Zed extension manifest
-├── languages/obo/          # Zed language config + queries
-│   ├── config.toml
-│   ├── highlights.scm
-│   ├── outline.scm
-│   └── brackets.scm
-└── tree-sitter-obo/        # Tree-sitter grammar (its own git repo)
-    ├── grammar.js
-    └── src/parser.c        # generated
+├── extension.toml          # Zed extension manifest (points to the grammar repo + rev)
+└── languages/obo/          # Zed language config + queries
+    ├── config.toml
+    ├── highlights.scm
+    ├── outline.scm
+    └── brackets.scm
 ```
+
+The Tree-sitter grammar lives in its own repository:
+[azankl/tree-sitter-obo](https://github.com/azankl/tree-sitter-obo).
 
 ## Changing the grammar
 
 ```sh
+git clone https://github.com/azankl/tree-sitter-obo
 cd tree-sitter-obo
 npm install
 npx tree-sitter generate
 npx tree-sitter parse path/to/file.obo
-git commit -am "..."        # then put the new commit SHA into extension.toml `rev`
+git commit -am "..." && git push
 ```
 
-Then click **Rebuild** next to the extension in Zed's Extensions page.
+Then put the new commit SHA into `rev` in `extension.toml` and click
+**Rebuild** next to the extension in Zed's Extensions page.
+
+## License
+
+MIT
