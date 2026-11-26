@@ -8,4 +8,4 @@ repository = "https://github.com/azankl/zed-obo"
 
 [grammars.obo]
 repository = "https://github.com/azankl/tree-sitter-obo"
-rev = "bd235c9a1fe593cf5d5cafef6af1ed142b935fee"
+rev = "bbe53b648fe9258b061770eb080c8dbb9b8efcf4"
